@@ -1,0 +1,16 @@
+---
+interface Props {
+	title: string;
+	subtitle?: string;
+	alignment?: 'left' | 'center';
+}
+
+const { title, subtitle, alignment = 'left' } = Astro.props;
+---
+
+<div class={`reveal mb-12 ${alignment === 'center' ? 'text-center' : 'text-left'}`}>
+	{subtitle && <span class="text-sm font-semibold uppercase tracking-wider text-primary mb-2 block">{subtitle}</span>}
+	<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+		{title}
+	</h2>
+</div>

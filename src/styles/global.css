@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7D4293;
+  --color-secondary: #5E85C3;
+  --font-sans: 'Poppins', sans-serif;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+  .bg-gradient-btn {
+    @apply bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-opacity;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  overflow-x: hidden;
+}

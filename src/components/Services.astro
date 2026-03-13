@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+import Container from "./Container.astro";
+import SectionTitle from "./SectionTitle.astro";
+
+const solutions = [
+  {
+    title: "Produção Audiovisual",
+    desc: "Produção de vídeos institucionais, vídeos corporativos e conteúdos audiovisuais profissionais voltados para comunicação digital de empresas.",
+    icon: "ph:film-slate",
+  },
+  {
+    title: "Podcasts Corporativos",
+    desc: "Estrutura completa de estúdio para gravação de podcasts, videocasts e programas digitais voltados para empresas e especialistas.",
+    icon: "ph:microphone-stage",
+  },
+  {
+    title: "Criação de Sites",
+    desc: "Desenvolvimento de sites institucionais, landing pages e plataformas digitais para presença digital empresarial.",
+    icon: "ph:browser",
+  },
+  {
+    title: "Sistemas Digitais",
+    desc: "Criação de aplicativos e sistemas digitais personalizados para projetos empresariais e plataformas online.",
+    icon: "ph:app-window",
+  },
+  {
+    title: "Conteúdo Digital",
+    desc: "Planejamento e produção de conteúdo estratégico, incluindo gravação de entrevistas e programas digitais, para fortalecer marcas.",
+    icon: "ph:pen-nib",
+  },
+  {
+    title: "Estratégia de Presença",
+    desc: "Planejamento de posicionamento digital e comunicação online para empresas que desejam crescer no ambiente digital.",
+    icon: "ph:strategy",
+  },
+];
+---
+
+<section
+  id="servicos"
+  class="py-24 bg-gray-50 relative border-t border-gray-100"
+>
+  <Container>
+    <div class="text-center md:max-w-2xl mx-auto mb-16 reveal">
+      <SectionTitle
+        title="Soluções da ITC+"
+        subtitle="Serviços"
+        alignment="center"
+      />
+      <p class="text-gray-600">
+        Produção de podcasts, videocasts, gravação de vídeos institucionais, e
+        desenvolvimento do seu projeto digital completo num só lugar.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        solutions.map((item, i) => (
+          <div
+            class="reveal bg-white rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-gray-200 group"
+            style={`transition-delay: ${i * 100}ms`}
+          >
+            <div class="w-14 h-14 bg-linear-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-8 text-primary group-hover:scale-110 transition-transform duration-300">
+              <Icon name={item.icon} class="w-7 h-7" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>

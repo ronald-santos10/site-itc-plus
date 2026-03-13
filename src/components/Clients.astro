@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+import Container from './Container.astro';
+import SectionTitle from './SectionTitle.astro';
+
+// A simple marquee-style list of mock client logos (using icons temporarily)
+const clients = [
+	"ph:buildings",
+	"ph:bank",
+	"ph:storefront",
+	"ph:handshake",
+	"ph:globe-hemisphere-west",
+	"ph:rocket"
+];
+---
+
+<section id="projetos" class="py-24 bg-white relative overflow-hidden border-t border-gray-100">
+	<Container>
+		<div class="text-center md:max-w-2xl mx-auto mb-16 reveal">
+			<SectionTitle 
+				title="Projetos e Parcerias" 
+				subtitle="Confiança" 
+				alignment="center" 
+			/>
+			<p class="text-gray-600">
+				Colaboramos com empresas, especialistas e marcas que buscam desenvolver sua presença digital com mais estrutura e profissionalismo, desde a produção até a distribuição.
+			</p>
+		</div>
+
+		<div class="relative flex overflow-x-hidden group reveal" style="transition-delay: 200ms;">
+			<div class="py-4 flex gap-16 animate-marquee whitespace-nowrap">
+				{clients.map(icon => (
+					<Icon name={icon} class="w-16 h-16 text-gray-300 hover:text-primary transition-colors duration-300 shrink-0" />
+				))}
+				{/* Duplicar para efeito infinito */}
+				{clients.map(icon => (
+					<Icon name={icon} class="w-16 h-16 text-gray-300 hover:text-primary transition-colors duration-300 shrink-0" />
+				))}
+			</div>
+		</div>
+	</Container>
+	<style>
+		.animate-marquee {
+			animation: marquee 30s linear infinite;
+		}
+		.animate-marquee:hover {
+			animation-play-state: paused;
+		}
+		@keyframes marquee {
+			0% { transform: translateX(0); }
+			100% { transform: translateX(-50%); }
+		}
+	</style>
+</section>

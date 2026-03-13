@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components';
+import Container from './Container.astro';
+import Button from './Button.astro';
+---
+
+<section id="contato" class="py-32 relative overflow-hidden">
+	<div class="absolute inset-0 bg-primary z-0"></div>
+	<div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-size-[24px_24px] z-0"></div>
+	<div class="absolute right-0 bottom-0 w-[500px] h-[500px] bg-secondary opacity-30 blur-[150px] rounded-full translate-x-1/4 translate-y-1/4 z-0 pointer-events-none"></div>
+	
+	<Container class="relative z-10 text-center text-white">
+		<div class="max-w-4xl mx-auto reveal">
+			<h2 class="text-4xl lg:text-6xl font-black mb-8 leading-tight tracking-tight">
+				Produza conteúdo digital profissional para sua empresa
+			</h2>
+			
+			<p class="text-xl md:text-2xl text-primary-100 mb-12 text-white/90 font-light leading-relaxed max-w-2xl mx-auto">
+				Entre em contato com a equipe da ITC+ e descubra como podemos ajudar. 
+				Nosso estúdio em Pinheiros está preparado para elevar o seu projeto ao nível máximo.
+			</p>
+			
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+				<Button href="#contato" variant="white" size="lg" icon="ph:whatsapp-logo-fill" class="w-full sm:w-auto">
+					Falar com a ITC+
+				</Button>
+				<Button href="#agendar" variant="outline" size="lg" icon="ph:calendar-plus-fill" class="w-full sm:w-auto text-white! border-white/20 hover:bg-white/10">
+					Agendar gravação
+				</Button>
+			</div>
+		</div>
+	</Container>
+</section>

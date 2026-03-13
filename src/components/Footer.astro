@@ -1,0 +1,47 @@
+---
+import Container from './Container.astro';
+---
+
+<footer class="bg-gray-50 border-t border-gray-100 py-12 md:py-16">
+	<Container>
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+			<div class="md:col-span-1">
+				<a href="#" class="text-2xl font-bold tracking-tighter text-gray-900 mb-6 block">
+					<span class="text-primary">ITC+</span>
+				</a>
+				<p class="text-sm text-gray-600 mb-6 leading-relaxed">
+					Produção Audiovisual • Estúdio de Podcast • Plataformas Digitais • Estratégia de Presença Digital
+				</p>
+			</div>
+			
+			<div>
+				<h4 class="font-semibold text-gray-900 mb-4">Navegação</h4>
+				<ul class="space-y-3">
+					<li><a href="#servicos" class="text-sm text-gray-600 hover:text-primary transition-colors">Serviços</a></li>
+					<li><a href="#estudio" class="text-sm text-gray-600 hover:text-primary transition-colors">Nosso Estúdio</a></li>
+					<li><a href="#solucoes" class="text-sm text-gray-600 hover:text-primary transition-colors">Soluções</a></li>
+					<li><a href="#sobre" class="text-sm text-gray-600 hover:text-primary transition-colors">Sobre a Empresa</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<h4 class="font-semibold text-gray-900 mb-4">Contato</h4>
+				<ul class="space-y-3">
+					<li class="flex items-start gap-2">
+						<svg class="w-5 h-5 text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M128 24a80.1 80.1 0 0 0-80 80c0 72 80 128 80 128s80-56 80-128a80.1 80.1 0 0 0-80-80Zm0 112a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z"/></svg>
+						<span class="text-sm text-gray-600">
+							Rua Claudio Soares, 72 — conjunto 1406<br/>
+							Pinheiros — São Paulo — SP — Brasil
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-4">
+			<p class="text-xs text-gray-500 text-center md:text-left">
+				&copy; {new Date().getFullYear()} ITC+. Todos os direitos reservados.
+			</p>
+		</div>
+	</Container>
+</footer>

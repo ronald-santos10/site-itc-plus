@@ -1,0 +1,109 @@
+---
+import { Icon } from "astro-icon/components";
+import Container from "./Container.astro";
+import SectionTitle from "./SectionTitle.astro";
+
+const structure = [
+  {
+    title: "Conteúdo profissional",
+    description:
+      "Produção audiovisual profissional, vídeos institucionais, vídeos para redes sociais e podcasts corporativos que fortalecem a comunicação da empresa.",
+    icon: "ph:video-camera",
+  },
+  {
+    title: "Plataformas digitais",
+    description:
+      "Desenvolvimento de sites institucionais, landing pages, plataformas digitais e aplicativos que funcionam como base da presença online da empresa.",
+    icon: "ph:devices",
+  },
+  {
+    title: "Autoridade digital",
+    description:
+      "Estratégias de posicionamento e comunicação digital que ajudam empresas a construir autoridade no ambiente online.",
+    icon: "ph:star",
+  },
+  {
+    title: "Crescimento digital",
+    description:
+      "Estratégias de SEO, produção de conteúdo e presença digital que ampliam visibilidade e alcance online.",
+    icon: "ph:trend-up",
+  },
+];
+---
+
+<section id="estrutura" class="py-24 bg-white relative">
+  <Container>
+    <div class="grid xl:grid-cols-2 gap-16 items-center">
+      <!-- BLOCO 5 - Texto -->
+      <div class="reveal">
+        <SectionTitle
+          title="A presença digital se tornou essencial para empresas"
+          subtitle="Digitalização"
+        />
+
+        <div class="prose text-gray-600 prose-lg">
+          <p class="mb-4 font-semibold text-gray-900">
+            Muitas empresas enfrentam desafios como:
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start gap-3">
+              <Icon
+                name="ph:warning-circle"
+                class="w-6 h-6 text-red-500 shrink-0 mt-0.5"
+              />
+              <span
+                >Conteúdo digital inconsistente ou amador e comunicação
+                fragmentada.</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon
+                name="ph:warning-circle"
+                class="w-6 h-6 text-red-500 shrink-0 mt-0.5"
+              />
+              <span>Sites que não geram oportunidades de negócio.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon
+                name="ph:warning-circle"
+                class="w-6 h-6 text-red-500 shrink-0 mt-0.5"
+              />
+              <span
+                >Baixa visibilidade no Google e dificuldade em construir
+                autoridade digital.</span
+              >
+            </li>
+          </ul>
+
+          <p>
+            Sem uma estrutura organizada, empresas investem sem alcançar
+            resultados consistentes. A <strong>ITC+</strong> atua exatamente nesse
+            cenário, estruturando a presença de forma profissional.
+          </p>
+        </div>
+      </div>
+
+      <!-- BLOCO 6 - Features/Estrutura -->
+      <div class="grid sm:grid-cols-2 gap-6 relative">
+        <div class="absolute -inset-4 bg-gray-50 rounded-3xl -z-10 reveal">
+        </div>
+        {
+          structure.map((item, index) => (
+            <div
+              class="reveal bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all duration-300 group"
+              style={`transition-delay: ${index * 150}ms`}
+            >
+              <div class="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-300">
+                <Icon name={item.icon} class="w-6 h-6 text-primary" />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</section>

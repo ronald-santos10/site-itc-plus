@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "ITC+ é uma empresa especializada em produção audiovisual para empresas, gravação de podcasts corporativos e desenvolvimento de presença digital profissional." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="antialiased text-gray-900 bg-white">
+		<slot />
+		
+		<script>
+			// Intersection Observer for scroll animations
+			document.addEventListener('DOMContentLoaded', () => {
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('active');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, {
+					threshold: 0.1,
+					rootMargin: '0px 0px -50px 0px'
+				});
+
+				document.querySelectorAll('.reveal').forEach((el) => {
+					observer.observe(el);
+				});
+			});
+		</script>
+	</body>
+</html>

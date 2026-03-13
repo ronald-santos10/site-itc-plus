@@ -1,0 +1,18 @@
+﻿
+> site-itc@0.0.1 build
+> astro build
+
+[2m19:54:06[22m [34m[types][39m Generated [2m51ms[22m
+[2m19:54:06[22m [34m[build][39m output: [34m"static"[39m
+[2m19:54:06[22m [34m[build][39m mode: [34m"static"[39m
+[2m19:54:06[22m [34m[build][39m directory: [34mC:\Users\ronal\Desktop\site-itc\dist\[39m
+[2m19:54:06[22m [34m[build][39m Collecting build info...
+[2m19:54:06[22m [34m[build][39m [32mÔ£ô Completed in 72ms.[39m
+[2m19:54:06[22m [34m[build][39m Building static entrypoints...
+[33m[1m19:54:08[22m [WARN] [vite][39m [33m"matchHostname", "matchPathname", "matchPort" and "matchProtocol" are imported from external module "@astrojs/internal-helpers/remote" but never used in "node_modules/astro/dist/assets/utils/index.js".[39m
+[2m19:54:08[22m [34m[vite][39m [32mÔ£ô built in 1.65s[39m
+[2m19:54:08[22m [34m[vite][39m [32mÔ£ô built in 15ms[39m
+[2m19:54:08[22m [34m[build][39m Rearranging server assets...
+
+[42m[30m generating static routes [39m[49m
+[2m19:54:08[22m   [34mÔö£ÔöÇ[39m [2m/index.html[22m

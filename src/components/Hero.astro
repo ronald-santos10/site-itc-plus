@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components';
+import Container from './Container.astro';
+import Button from './Button.astro';
+---
+
+<section id="inicio" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-gray-50">
+	<div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"></div>
+	<div class="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary opacity-20 blur-[100px]"></div>
+	
+	<Container class="relative z-10 flex flex-col xl:flex-row items-center gap-16">
+		<div class="flex-1 text-left max-w-3xl">
+			<span class="reveal inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase mb-6 shadow-sm border border-primary/20">
+				<Icon name="ph:record-fill" class="w-4 h-4 animate-pulse" />
+				Estúdio em Pinheiros, São Paulo
+			</span>
+			
+			<h1 class="reveal text-5xl xl:text-7xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-8" style="transition-delay: 100ms;">
+				Produção de <span class="text-gradient">conteúdo profissional</span> para empresas
+			</h1>
+			
+			<p class="reveal text-xl md:text-2xl text-gray-700 font-medium mb-6 leading-relaxed" style="transition-delay: 200ms;">
+				Gravação de podcasts, vídeos institucionais e conteúdos para redes sociais.
+			</p>
+
+			<div class="reveal flex flex-col sm:flex-row gap-4" style="transition-delay: 400ms;">
+				<Button href="#contato" icon="ph:calendar-plus" class="shadow-lg hover:shadow-xl">
+					Agendar gravação
+				</Button>
+				<Button href="#solucoes" variant="outline">
+					Falar com a ITC+
+				</Button>
+			</div>
+		</div>
+
+		<div class="flex-1 w-full relative reveal" style="transition-delay: 500ms;">
+			<div class="relative w-full aspect-square md:aspect-4/3 rounded-3xl overflow-hidden shadow-2xl bg-gray-200 border border-white/50 group">
+				<div class="absolute inset-0 bg-linear-to-t from-gray-900/60 to-transparent z-10"></div>
+				<img 
+					src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+					alt="Estúdio Profissional de Podcast" 
+					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+					loading="eager"
+				/>
+				<div class="absolute bottom-6 left-6 right-6 z-20">
+					<div class="backdrop-blur-md bg-white/10 border border-white/20 p-4 rounded-2xl">
+						<div class="flex items-center gap-4">
+							<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg">
+								<Icon name="ph:rocket-launch" class="w-6 h-6" />
+							</div>
+							<div>
+								<p class="text-white font-semibold flex items-center gap-2">Estrutura Completa</p>
+								<p class="text-white/80 text-sm">Pronto para sua empresa decolar</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</Container>
+</section>
