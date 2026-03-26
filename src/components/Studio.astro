@@ -10,6 +10,13 @@ const structureList = [
 	"Ambiente confortável e preparado",
 	"Estrutura para gravações corporativas"
 ];
+
+import studio1 from "../assets/image-1.webp";
+import studio2 from "../assets/image-2.webp";
+import studio3 from "../assets/image-3.webp";
+import studio4 from "../assets/image-4.webp";
+import { Image } from 'astro:assets';
+
 ---
 
 <section id="estudio" class="py-24 bg-white relative overflow-hidden">
@@ -18,8 +25,8 @@ const structureList = [
 	<Container>
 		<div class="md:max-w-2xl mx-auto mb-16 reveal">
 			<SectionTitle 
-				title="Estúdio de podcast e produção audiovisual" 
-				subtitle="Estrutura em Pinheiros"
+				title="Estrutura profissional e experiência real" 
+				subtitle="Prova e autoridade"
 				alignment="center"
 			/>
 		</div>
@@ -27,12 +34,12 @@ const structureList = [
 			<div class="lg:w-1/2 relative reveal w-full">
 				<div class="grid grid-cols-2 gap-4">
 					<div class="space-y-4 translate-y-8">
-						<img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=600&q=80" alt="Podcast 1" class="w-full h-32 md:h-48 object-cover rounded-2xl shadow-lg" loading="lazy" />
-						<img src="https://images.unsplash.com/photo-1581362036044-c76cebd1262d?auto=format&fit=crop&w=600&q=80" alt="Camera Setup" class="w-full h-48 md:h-64 object-cover rounded-2xl shadow-lg" loading="lazy" />
+						<Image src={studio1} alt="Podcast Studio" class="w-full h-32 md:h-48 object-cover rounded-2xl shadow-lg" loading="lazy" />
+						<Image src={studio2} alt="Camera Setup" class="w-full h-48 md:h-64 object-cover rounded-2xl shadow-lg" loading="lazy" />
 					</div>
 					<div class="space-y-4">
-						<img src="https://images.unsplash.com/photo-1620603704981-2292a1885f83?auto=format&fit=crop&w=600&q=80" alt="Audio equipment" class="w-full h-48 md:h-64 object-cover rounded-2xl shadow-lg" loading="lazy" />
-						<img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80" alt="Studio Lighting" class="w-full h-32 md:h-48 object-cover rounded-2xl shadow-lg" loading="lazy" />
+						<Image src={studio3} alt="Audio Console" class="w-full h-48 md:h-64 object-cover rounded-2xl shadow-lg" loading="lazy" />
+						<Image src={studio4} alt="Microfone Condensador" class="w-full h-32 md:h-48 object-cover rounded-2xl shadow-lg" loading="lazy" />
 					</div>
 				</div>
 			</div>
@@ -40,10 +47,10 @@ const structureList = [
 			<div class="lg:w-1/2 reveal">
 				<div class="prose text-gray-600 prose-lg max-w-none">
 					<p class="mb-4">
-						O estúdio da ITC+ foi desenvolvido para oferecer uma estrutura profissional de produção audiovisual para empresas e especialistas.
+						A ITC+ atua com empresas que buscam mais do que presença digital. Buscam posicionamento, autoridade e crescimento. 
 					</p>
 					<p class="mb-8">
-						Localizado em Pinheiros, São Paulo, o estúdio permite realizar gravações de podcasts corporativos, videocasts, entrevistas e vídeos institucionais em ambiente totalmente preparado para conteúdo digital.
+						Trabalhamos com produção audiovisual profissional, estrutura de estúdio e estratégias aplicadas na prática para transformar sua empresa em referência.
 					</p>
 				</div>
 				

@@ -1,0 +1,170 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "./Button.astro";
+---
+
+<div class="bg-white rounded-3xl p-8 shadow-2xl border border-white/10 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+  
+  <h3 class="text-2xl font-bold text-gray-900 mb-6">Solicitar Diagnóstico</h3>
+  
+  <form id="lead-form" class="space-y-4">
+    <!-- Campos de UTM (ocultos) -->
+    <input type="hidden" name="utm_source" id="utm_source" />
+    <input type="hidden" name="utm_medium" id="utm_medium" />
+    <input type="hidden" name="utm_campaign" id="utm_campaign" />
+    <input type="hidden" name="utm_term" id="utm_term" />
+    <input type="hidden" name="utm_content" id="utm_content" />
+
+    <div class="space-y-4">
+      <div>
+        <label for="name" class="block text-sm font-semibold text-gray-700 mb-1.5">Nome Completo</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="nome_completo" 
+          required 
+          placeholder="Seu nome"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50/50"
+        />
+      </div>
+      
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label for="email" class="block text-sm font-semibold text-gray-700 mb-1.5">E-mail</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            placeholder="seu@email.com"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50/50"
+          />
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1.5">WhatsApp</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="whatsapp" 
+            required 
+            placeholder="(11) 99999-9999"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50/50"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="company" class="block text-sm font-semibold text-gray-700 mb-1.5">Empresa / Setor</label>
+        <input 
+          type="text" 
+          id="company" 
+          name="empresa_setor" 
+          required
+          placeholder="Nome da sua empresa"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50/50"
+        />
+      </div>
+    </div>
+
+    <Button 
+      type="submit" 
+      id="submit-btn"
+      class="w-full mt-4"
+      icon="ph:arrow-right"
+    >
+      Solicitar agora
+    </Button>
+    
+    <p id="form-message" class="text-center text-sm font-medium mt-4 hidden"></p>
+  </form>
+</div>
+
+<script>
+	// Capturar UTMs do URL
+	function getUTMs() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const utms = ['source', 'medium', 'campaign', 'term', 'content'];
+		
+		utms.forEach(utm => {
+			const value = urlParams.get(`utm_${utm}`);
+			const input = document.getElementById(`utm_${utm}`) as HTMLInputElement;
+			if (input && value) {
+				input.value = value;
+			}
+		});
+	}
+
+	// Manipular envio do formulário
+	const form = document.getElementById('lead-form') as HTMLFormElement;
+	const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+	const message = document.getElementById('form-message');
+
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		if (!form || !submitBtn || !message) return;
+
+		submitBtn.disabled = true;
+		submitBtn.innerText = 'Enviando...';
+
+		const formData = new FormData(form);
+		const data = Object.fromEntries(formData.entries());
+
+		try {
+			// URL do Webhook (substituir pela URL real)
+			const WEBHOOK_URL = 'https://hook.us1.make.com/ufywfeo9vk1152uaetyc7ftcix6dauw1'; 
+			
+			const response = await fetch(WEBHOOK_URL, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					...data,
+					timestamp: new Date().toLocaleDateString('pt-BR') + ' ' + new Date().toLocaleTimeString('pt-BR'),
+					url_origem: window.location.href
+				}),
+			});
+
+			if (!response.ok) throw new Error('Falha no envio');
+
+			message.innerText = 'Enviado com sucesso! Em breve entraremos em contato.';
+			message.classList.remove('hidden', 'text-red-500');
+			message.classList.add('text-green-600');
+			form.reset();
+
+		} catch (error) {
+			console.error('Erro no envio:', error);
+			message.innerText = 'Ocorreu um erro. Por favor, tente novamente via WhatsApp.';
+			message.classList.remove('hidden', 'text-green-600');
+			message.classList.add('text-red-500');
+		} finally {
+			submitBtn.disabled = false;
+			submitBtn.innerHTML = 'Solicitar agora <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="m221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z"/></svg>';
+		}
+	});
+
+	// Máscara de Telefone
+	const phoneInput = document.getElementById('phone') as HTMLInputElement;
+
+	phoneInput?.addEventListener('input', (e) => {
+		let value = phoneInput.value.replace(/\D/g, '');
+		
+		if (value.length > 11) value = value.slice(0, 11);
+
+		if (value.length > 10) {
+			value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+		} else if (value.length > 6) {
+			value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+		} else if (value.length > 2) {
+			value = value.replace(/^(\d{2})(\d{0,5}).*/, '($1) $2');
+		} else if (value.length > 0) {
+			value = value.replace(/^(\d{0,2}).*/, '($1');
+		}
+		
+		phoneInput.value = value;
+	});
+
+	// Inicializar
+	getUTMs();
+</script>

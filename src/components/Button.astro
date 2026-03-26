@@ -23,19 +23,19 @@ const {
 const hasDisplayClass = /\b(hidden|block|inline-block|flex|inline-flex|grid|inline-grid|table|inline-table|contents|list-item)\b/.test(className);
 const displayClass = hasDisplayClass ? '' : 'inline-flex';
 
-const baseStyles = "items-center justify-center gap-2 font-medium rounded-full transition-all duration-300 hover:-translate-y-1 active:scale-95 shadow-sm hover:shadow-md";
+const baseStyles = "items-center justify-center gap-2 font-bold rounded-xl transition-all duration-300 hover:-translate-y-1 active:scale-95 shadow-sm hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed";
 
 const variants = {
-	primary: "bg-gradient-btn text-white shadow-primary/20",
+	primary: "bg-primary text-white shadow-primary/20 hover:bg-primary/90",
 	secondary: "bg-secondary text-white hover:opacity-90 shadow-secondary/20",
-	outline: "bg-transparent border border-gray-200 text-gray-900 hover:bg-gray-50",
+	outline: "bg-transparent border-2 border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50",
 	white: "bg-white text-primary hover:bg-gray-50 shadow-white/10"
 };
 
 const sizes = {
-	sm: "px-5 py-2 text-sm",
-	md: "px-8 py-3.5 text-base text-sm md:text-base",
-	lg: "px-10 py-5 text-lg font-bold"
+	sm: "px-6 py-2.5 text-sm",
+	md: "px-8 py-4 text-base",
+	lg: "px-10 py-5 text-lg"
 };
 
 const Tag = href ? 'a' : 'button';

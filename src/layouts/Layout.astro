@@ -18,6 +18,8 @@ const { title, description = "ITC+ é uma empresa especializada em produção au
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href={Astro.url.href} />
+		<meta name="robots" content="index, follow" />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />

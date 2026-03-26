@@ -2,6 +2,9 @@
 import { Icon } from 'astro-icon/components';
 import Container from './Container.astro';
 import SectionTitle from './SectionTitle.astro';
+import { Image } from 'astro:assets';
+
+import equipe from "../assets/equipe.webp";
 ---
 
 <section id="sobre" class="py-24 bg-gray-50 border-t border-gray-100">
@@ -10,8 +13,8 @@ import SectionTitle from './SectionTitle.astro';
 			
 			<div class="order-2 md:order-1 reveal">
 				<div class="relative rounded-3xl overflow-hidden shadow-xl aspect-square md:aspect-auto md:h-[500px]">
-					<img 
-						src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" 
+					<Image 
+						src={equipe} 
 						alt="Equipe ITC+" 
 						class="w-full h-full object-cover"
 						loading="lazy"
@@ -22,19 +25,16 @@ import SectionTitle from './SectionTitle.astro';
 			
 			<div class="order-1 md:order-2 reveal">
 				<SectionTitle 
-					title="Sobre a ITC+" 
-					subtitle="Especialistas"
+					title="A ITC+ estrutura o digital da sua empresa do jeito certo" 
+					subtitle="Solução Completa"
 				/>
 				
 				<div class="prose prose-lg text-gray-600 mb-8">
 					<p>
-						A ITC+ é uma empresa especializada em produção audiovisual, estúdio de podcast e desenvolvimento de plataformas digitais para empresas.
+						Unimos <strong>estratégia digital, produção audiovisual profissional e desenvolvimento tecnológico</strong> para criar uma presença digital sólida, organizada e orientada a resultado. 
 					</p>
 					<p>
-						Nosso trabalho integra <strong>conteúdo, tecnologia e estratégia digital</strong> para ajudar empresas a desenvolver uma presença online completa e altamente profissional.
-					</p>
-					<p>
-						Atuamos na produção de vídeos e podcasts corporativos, unindo essas mídias com o desenvolvimento de sites e aplicativos para consolidar e ampliar seus resultados de marketing.
+						Você não precisa contratar vários fornecedores. A ITC+ centraliza tudo com padrão profissional, garantindo coerência e autoridade em cada ponto de contato com seu cliente.
 					</p>
 				</div>
 				

@@ -1,0 +1,41 @@
+---
+import Container from "./Container.astro";
+import SectionTitle from "./SectionTitle.astro";
+import Button from "./Button.astro";
+---
+
+<section id="faq" class="py-24 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
+  <div class="absolute right-0 bottom-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+  <Container>
+    <div class="max-w-4xl mx-auto reveal">
+      <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200 relative">
+        <div class="absolute -top-6 left-12 px-6 py-2 bg-secondary text-white font-bold rounded-full shadow-lg">
+          Dúvida comum
+        </div>
+        
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 leading-tight">
+          Não é sobre fazer mais. <br/><span class="text-primary">É sobre fazer certo.</span>
+        </h2>
+
+        <div class="prose prose-lg text-gray-600 max-w-none">
+          <p class="mb-6 text-xl font-medium text-gray-800">
+            Se sua empresa já tentou o digital e não teve resultado, o problema não é o canal. 
+          </p>
+          <p>
+            Sem estratégia, qualidade e consistência, o digital não funciona. Mas quando bem estruturado, ele deixa de ser um "custo" e se torna um <strong>ativo de crescimento</strong> real para o seu negócio.
+          </p>
+        </div>
+
+        <div class="mt-10 p-6 bg-primary/5 rounded-2xl border border-primary/10 flex flex-col md:flex-row items-center gap-6">
+          <div class="flex-1">
+            <p class="text-gray-900 font-bold text-lg mb-1">Pronto para mudar esse cenário?</p>
+            <p class="text-gray-600 text-sm">Nossa equipe está pronta para estruturar sua presença digital.</p>
+          </div>
+          <Button href="#contato">
+            Falar com especialista
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
