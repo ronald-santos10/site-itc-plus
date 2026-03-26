@@ -1,0 +1,33 @@
+name: Deploy Astro to Locaweb
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Astro
+        run: npm run build
+
+      - name: FTP Deploy
+        uses: locaweb/ftp-deploy@1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER }}
+          password: ${{ secrets.PASS }}
+          localDir: "dist"
+          remoteDir: "public_html"
